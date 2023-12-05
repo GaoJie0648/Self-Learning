@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Performance</title>
+    <link rel="icon" type="image/x-icon" href="./images/performance.png">
+    <style>
+        img {
+            display: block;
+            width: 800px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        @keyframes loading {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .loading {
+            animation: loading 0.5s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/1.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/2.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/3.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/4.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/5.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/6.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/7.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/8.jpg" class="img lazy">
+        </div>
+        <div class="picture">
+            <img loading="lazy" data-src="./images/9.jpg" class="img lazy">
+        </div>
+    </section>
+
+    <script>
+        function onEnterView(entries, observer) {
+            for (const entry of entries) {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loading')
+                    img.setAttribute('src', img.dataset.src);
+                    observer.unobserve(img);
+                }
+            }
+        }
+        const watcher = new IntersectionObserver(onEnterView);
+        const lazyImages = document.querySelectorAll('img.lazy');
+        for (const image of lazyImages) {
+            watcher.observe(image);
+        }
+    </script>
+</body>
+
+</html>
