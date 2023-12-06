@@ -1,0 +1,9 @@
+# 啟用 RewriteEngine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+</IfModule>
+
+# 設置 Cache-Control 標頭
+<FilesMatch "\.(html|htm|svg|js|css)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>

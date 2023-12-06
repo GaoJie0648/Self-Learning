@@ -1,3 +1,7 @@
+*{
+    font-display: optional;
+}
+
 body{
     background-color: azure;
     display: flex;
@@ -15,10 +19,12 @@ img {
 @keyframes loading {
     from {
         filter: blur(1px);
+        opacity: 0;
     }
 
     to {
         filter: blur(0);
+        opacity: 0;
     }
 }
 
@@ -30,5 +36,5 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 100vh;
 }
