@@ -7,88 +7,40 @@
     <title>Image Performance</title>
     <link rel="icon" type="image/x-icon" href="./images/performance.png">
     <meta name="description" content="新北市112學年度技術型高中Pro自主學習成果">
-    <style>
-        body{
-            background-color: azure;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-flow: column wrap;
-        }
-        img {
-            width: 800px;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        @keyframes loading {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .loading {
-            animation: loading 0.5s linear;
-        }
-        
-        .picture{
-            height: 500px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <section>
         <div class="picture">
-            <img data-src="./images/1.webp" class="img lazy" alt="wallpaper1">
+            <img src="./images/1_s.webp" data-src="./images/1.webp" class="img lazy" alt="wallpaper1">
         </div>
         <div class="picture">
-            <img data-src="./images/2.webp" class="img lazy" alt="wallpaper2">
+            <img src="./images/2_s.webp" data-src="./images/2.webp" class="img lazy" alt="wallpaper2">
         </div>
         <div class="picture">
-            <img data-src="./images/3.webp" class="img lazy" alt="wallpaper3">
+            <img src="./images/3_s.webp" data-src="./images/3.webp" class="img lazy" alt="wallpaper3">
         </div>
         <div class="picture">
-            <img data-src="./images/4.webp" class="img lazy" alt="wallpaper4">
+            <img src="./images/4_s.webp" data-src="./images/4.webp" class="img lazy" alt="wallpaper4">
         </div>
         <div class="picture">
-            <img data-src="./images/5.webp" class="img lazy" alt="wallpaper5">
+            <img src="./images/5_s.webp" data-src="./images/5.webp" class="img lazy" alt="wallpaper5">
         </div>
         <div class="picture">
-            <img data-src="./images/6.webp" class="img lazy" alt="wallpaper6">
+            <img src="./images/6_s.webp" data-src="./images/6.webp" class="img lazy" alt="wallpaper6">
         </div>
         <div class="picture">
-            <img data-src="./images/7.webp" class="img lazy" alt="wallpaper7">
+            <img src="./images/7_s.webp" data-src="./images/7.webp" class="img lazy" alt="wallpaper7">
         </div>
         <div class="picture">
-            <img data-src="./images/8.webp" class="img lazy" alt="wallpaper8">
+            <img src="./images/8_s.webp" data-src="./images/8.webp" class="img lazy" alt="wallpaper8">
         </div>
         <div class="picture">
-            <img data-src="./images/9.webp" class="img lazy" alt="wallpaper9">
+            <img src="./images/9_s.webp" data-src="./images/9.webp" class="img lazy" alt="wallpaper9">
         </div>
     </section>
-
-    <script>
-        function onEnterView(entries, observer) {
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loading')
-                    img.setAttribute('src', img.dataset.src);
-                    observer.unobserve(img);
-                }
-            }
-        }
-        const watcher = new IntersectionObserver(onEnterView);
-        const lazyImages = document.querySelectorAll('img.lazy');
-        for (const image of lazyImages) {
-            watcher.observe(image);
-        }
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

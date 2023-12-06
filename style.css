@@ -1,0 +1,34 @@
+body{
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+img {
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+}
+
+@keyframes loading {
+    from {
+        filter: blur(1px);
+    }
+
+    to {
+        filter: blur(0);
+    }
+}
+
+.loading {
+    animation: loading 0.5s linear;
+}
+
+.picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
